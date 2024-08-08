@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link rel="stylesheet" href="stylesheet/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
+      integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gmail</h1>
+      <a href="/userform"><i class="ri-pencil-fill"></i> Compose</a>
+      <div class="msg">
+        <div class="msg-title">Messages</div>
+        <div class="msg-container">
+          <% if (chats.length<=0 ) {%>
+          <h4 style="opacity: 0.6">no messages found</h4>
+          <% } else { %> <% for (chats of chats) { %>
+          <div class="message">
+            <div><%= chats.username %></div>
+            <div style="overflow: hidden"><%= chats.message%></div>
+            <div><%= chats.date%></div>
+            <div class="delUp">
+              <a href="/update/<%= chats.id%>" style="color: #007bff">Edit</a>
+              <a href="/delete/<%= chats.id%>" style="color: rgb(255, 0, 0)"
+                >Delete</a
+              >
+            </div>
+          </div>
+          <%} %> <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
